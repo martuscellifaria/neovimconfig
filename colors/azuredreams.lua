@@ -17,7 +17,8 @@ local colors = {
 vim.cmd 'highlight clear'
 vim.cmd 'set termguicolors'
 
-vim.api.nvim_set_hl(0, 'Normal', { fg = colors.fg, bg = colors.bg })
+vim.api.nvim_set_hl(0, 'Normal', {})
+-- vim.api.nvim_set_hl(0, 'Normal', { fg = colors.fg, bg = colors.bg })
 vim.api.nvim_set_hl(0, 'Comment', { fg = colors.muted, italic = true })
 vim.api.nvim_set_hl(0, 'Constant', { fg = colors.secondary })
 vim.api.nvim_set_hl(0, 'String', { fg = colors.success })
