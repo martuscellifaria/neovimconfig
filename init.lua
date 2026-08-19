@@ -904,11 +904,11 @@ require('lazy').setup({
       -- Load the colorscheme here.
       -- Like many other themes, this one has different styles, and you could load
       -- any other, such as 'tokyonight-storm', 'tokyonight-moon', or 'tokyonight-day'.
-      -- vim.cmd.colorscheme 'tokyonight-night'
+      vim.cmd.colorscheme 'tokyonight-night'
 
       -- vim.cmd.colorscheme 'azuredreams'
       -- vim.cmd.colorscheme 'coppernight'
-      vim.cmd.colorscheme 'matteblack'
+      -- vim.cmd.colorscheme 'matteblack'
     end,
   },
 
@@ -1031,10 +1031,21 @@ require('lazy').setup({
 vim.opt.termguicolors = true
 require('bufferline').setup {}
 vim.lsp.config['clangd'] = {
-  cmd = { 'clangd' },
+  cmd = { 'clangd', '--clang-tidy', '--clang-tidy-checks=*' },
   filetypes = { 'c', 'cpp', 'objcpp', 'cuda', 'h', 'hpp', 'cc', 'cxx' },
   root_markers = { '.git', 'compile_commands.json', 'compile_flags.txt' },
 }
+
+vim.api.nvim_create_autocmd('FileType', {
+  pattern = { 'cpp', 'c', 'h' },
+  callback = function()
+    vim.opt_local.expandtab = true
+    vim.opt_local.tabstop = 4
+    vim.opt_local.shiftwidth = 4
+    vim.opt_local.softtabstop = 4
+  end,
+})
+
 vim.lsp.enable 'clangd'
 -- Custom keymaps and remaps
 -- Bufferline navigation

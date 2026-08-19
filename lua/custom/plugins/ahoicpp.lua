@@ -7,6 +7,7 @@ return {
         autocompile_on_create = true,
         compile_as_debug = false,
         enable_popups = true,
+        add_tests = true,
         git_init = true,
         keymaps = {
           group_c = '<leader>c',
@@ -24,13 +25,13 @@ return {
           escafandro_explain = '<leader>cee',
           toggle_escafandro_debug_assist = '<leader>cet',
         },
-        escafandro = {
-          ip = '127.0.0.1:8080',
-          engine = 'llamacpp',
-          model = 'qwen2.5-coder-7b-instruct-q4_k_m',
-          max_tokens = 500,
-          debug_assist = true,
-        },
+        -- escafandro = {
+        --   ip = '127.0.0.1:8080',
+        --   engine = 'llamacpp',
+        --   model = 'qwen2.5-coder-7b-instruct-q4_k_m',
+        --   max_tokens = 500,
+        --   debug_assist = true,
+        -- },
       }
     end,
   },
